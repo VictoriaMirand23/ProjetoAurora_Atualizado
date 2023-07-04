@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aurora - Cadastro Paciente</title>
+    <link rel="stylesheet" href="cadastro.css">
+  </head>
+  <body>
+   
+
+    <div class="wrapper">
+      <div class="sidebar">
+        <div class="logo-container">
+          <a href="../index.html"><img src="images/logo_nav.png" alt="Aurora Logo"></a>
+          <div class="logo-text">
+            <h2>Aurora</h2>
+            <p>Todo dia é um recomeço</p>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="button" class="Paciente">Paciente</button>
+          <a href="../cadastro_profissional/cadastro_profissional.html"><button type="button" class="Profissional">Profissional</button></a>
+          <p class="login">Já tem uma conta? <a href="../login_paciente/login_paciente.html">Entrar</a></p>
+        </div>
+      </div>
+      
+      <div class="main">
+
+        <h1>Cadastre-se</h1>
+
+        <div class="social">
+
+          <p>Entre com...</p>
+
+          <button type="button">Cadastrar via Google</button>
+          <button type="button">Cadastrar via Facebook</button>
+
+        </div>
+
+        <div class="collum">
+          <div class="col">
+            <form id="cadastroForm">
+              <label for="nome">Nome completo:</label>
+              <input type="text" id="nome" name="nome" placeholder="Digite aqui" required>
+
+              <label for="data-nascimento">Data de nascimento:</label>
+              <input type="date" id="data-nascimento" name="data-nascimento" required>
+
+              <label for="email">E-mail:</label>
+              <input type="email" id="email" name="email" placeholder="Digite aqui" required>
+
+              <label for="senha">Senha:</label>
+              <input type="password" id="senha" name="senha" placeholder="Digite aqui" required>
+
+              <label for="confirmar-senha">Confirmar senha:</label>
+              <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Digite aqui" required>
+            
+            </form>
+          </div>
+        </div>
+        <button     onclick="cadastrar()" type="submit">Continuar</button>
+      </div>
+    </div>
+<script>
+
+function cadastrar() {
+  var nome = document.getElementById("nome").value;
+  var dataNascimento = document.getElementById("data-nascimento").value;
+  var email = document.getElementById("email").value;
+  var senha = document.getElementById("senha").value;
+  var confirmarSenha = document.getElementById("confirmar-senha").value;
+
+  // Verificar se algum campo está vazio
+  if (nome === "" || dataNascimento === "" || email === "" || senha === "" || confirmarSenha === "") {
+    alert("Por favor, preencha todos os campos do formulário.");
+    return;
+  }
+
+  // Validar os valores do formulário, se necessário
+
+  if (senha !== confirmarSenha) {
+    alert("As senhas não correspondem. Por favor, verifique novamente.");
+    return;
+  }
+
+  var paciente = {
+    nome: nome,
+    dataNascimento: dataNascimento,
+    email: email,
+    senha: senha
+  };
+
+  localStorage.setItem("paciente", JSON.stringify(paciente));
+
+  alert("Cadastro realizado com sucesso!");
+
+  // Redirecionar para a próxima página
+  window.location.href = "../login_paciente/login_paciente.html";
+}
+
+
+
+</script>
+    
+  </body>
+</html>

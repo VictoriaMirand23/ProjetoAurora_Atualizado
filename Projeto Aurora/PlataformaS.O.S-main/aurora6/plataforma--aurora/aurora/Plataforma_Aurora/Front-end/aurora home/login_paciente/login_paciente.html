@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aurora - Cadastro Paciente</title>
+    <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+
+    <div class="wrapper">
+      <div class="sidebar">
+        <div class="logo-container">
+          <a href="../index.html"><img src="images/logo_nav.png" alt="Aurora Logo"></a>
+          <div class="logo-text">
+            <h2>Aurora</h2>
+            <p>Todo dia é um recomeço</p>
+          </div>
+        </div>
+
+        <div class="buttons">
+          <button type="button" class="Paciente">Paciente</button>
+          <a href="../login_profissional/login_profissional.html"><button type="button" class="Profissional">Profissional</button></a>
+          <p class="login">Novo por aqui? <a href="../cadastro_paciente/cadastro_paciente.html">Cadastre-se</a></p>
+        </div>
+      </div>
+      
+      <div class="main">
+        <h1>Reconecte-se</h1>
+
+        <div class="social">
+          <p>Entre com...</p>
+          <button type="button">Conectar via Google</button>
+          <button type="button">Conectar via Facebook</button>
+        </div>
+
+        <div class="collum">
+          <div class="col">
+            <div class="account">
+              <label for="email">E-mail:</label>
+              <input type="email" id="email" name="email" placeholder="Digite aqui" required>
+            </div>
+
+            <div class="password">
+              <label for="senha">Senha:</label>
+              <input type="password" id="senha" name="senha" placeholder="Digite aqui" required>
+            </div>
+          </div>
+        </div>
+
+        <button onclick="entrar()" type="submit">Continuar</button>
+      </div>
+    </div>
+
+    <script>
+         function entrar() {
+    let email = document.querySelector('#email').value;
+    let senha = document.querySelector('#senha').value;
+    
+    if (email.trim() === '' || senha.trim() === '') {
+      alert("Por favor, preencha o usuário e a senha.");
+    } else {
+      window.location.href = "../usuarioLogado.html";
+    }
+  }
+    </script>
+  </body>
+</html>
